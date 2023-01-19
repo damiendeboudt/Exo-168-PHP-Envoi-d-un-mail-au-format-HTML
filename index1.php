@@ -9,7 +9,7 @@
  */
 
 $to = [
-    'j.conan@fondationface.org',
+    'foxhyzi@gmail.com',
     'damien.deboudt@sfr.fr'
 ];
 
@@ -25,12 +25,12 @@ $html = '
         </body>
     </html>
 ';
-for($i = 0; $i < count($to); $i++) {
-    mail($i, "Newsletter", $html);
-    if ( mail($i, "Newsletter", $html)) {
-        echo "le mail a bien été envoyé à " . $i;
-    } else {
-        echo "Erreur lors de l'envoi du mail à " . $i;
-    }
 
+foreach ($to as $key => $value) {
+    mail($value, "Newsletter", $html);
+    if ( mail($value, "Newsletter", $html)) {
+        echo "le mail a bien été envoyé à " . $value . "<br>";
+    } else {
+        echo "Erreur lors de l'envoi du mail à " . $value . "<br>";
+    }
 }
